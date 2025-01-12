@@ -1,0 +1,31 @@
+Resources:
+  OrderServiceFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: order_service/app.lambda_handler
+      Runtime: python3.9
+      Environment:
+        Variables:
+          ORDERS_TABLE: OrdersTable
+          NOTIFICATION_TOPIC_ARN: arn:aws:sns:us-east-1:123456789012:OrderNotifications
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: /orders
+            Method: any
+
+  RestaurantServiceFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: restaurant_service/app.lambda_handler
+      Runtime: python3.9
+      Environment:
+        Variables:
+          RESTAURANTS_TABLE: RestaurantsTable
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: /restaurants
+            Method: any

@@ -1,0 +1,6 @@
+boto3
+## Prerequisites
+Python 3.9
+AWS CLI
+AWS SAM CLI
+
