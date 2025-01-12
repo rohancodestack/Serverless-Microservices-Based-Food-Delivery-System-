@@ -44,3 +44,4 @@ Prerequisites
 	•	AWS SAM CLI
 	•	Python 3.9
 	2.	AWS Account with necessary permissions.
+
